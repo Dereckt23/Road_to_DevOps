@@ -18,9 +18,11 @@ useradd alice
 useradd intruder
 mkdir /home/devopslead
 
-# Creating release team and adding its members
+# Creating release team and adding it's members
 groupadd release_team
-usermod -aG release_team devopslead dereck alice
+usermod -aG release_team devopslead
+usermod -aG release_team dereck
+usermod -aG release_team alice
 
 # Creating a releases directory and a release_notes.txt inside of it with its respective permissions
 mkdir /srv/releases
@@ -32,4 +34,7 @@ chmod 640 /srv/releases/release_notes.txt
 touch cpu_stress.sh
 htop
 renice -n 10 -p <process_id>
+
+# Creating script to check access of th users
+script at check_access.sh
 ```
