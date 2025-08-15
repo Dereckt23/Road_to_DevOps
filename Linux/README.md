@@ -8,37 +8,37 @@ Your mission is to configure the entire environment and make it work with the re
 
 ---
 
-## Solution
+# Solution
 
 ```bash
-## Creating the required users, the intruder and a work area for the DevOps lead
+# Creating the required users, the intruder and a work area for the DevOps lead
 useradd devopslead 
 useradd dereck 
 useradd alice 
 useradd intruder
 mkdir /home/devopslead
 
-## Creating release team and adding it's members
+# Creating release team and adding it's members
 groupadd release_team
 usermod -aG release_team devopslead
 usermod -aG release_team dereck
 usermod -aG release_team alice
 
-## Creating a releases directory and a release_notes.txt inside of it with its respective permissions
+# Creating a releases directory and a release_notes.txt inside of it with its respective permissions
 mkdir /srv/releases
 chmod 750 /srv/releases
 touch /srv/releases/release_notes.txt
 chmod 640 /srv/releases/release_notes.txt
 
-## Create a process that updates release_notes.txt every few seconds, then we need to track it and change it's priority
+# Create a process that updates release_notes.txt every few seconds, then we need to track it and change it's priority
 touch cpu_stress.sh
 htop
 renice -n 10 -p <process_id>
 
-## Creating script to check access of th users
+# Creating script to check access of th users
 script at check_access.sh
 
-## Configuring cron job to simulate an intruder access attempt every 2 minutes
+# Configuring cron job to simulate an intruder access attempt every 2 minutes
 crontab -l
 crontab -e
 */2 * * * * /home/devopslead/Road_to_DevOps/Linux/check_access.sh intruder # add at the end of the file
