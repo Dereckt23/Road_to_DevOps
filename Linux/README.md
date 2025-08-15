@@ -37,4 +37,9 @@ renice -n 10 -p <process_id>
 
 # Creating script to check access of th users
 script at check_access.sh
+
+# Configuring cron job to simulate an intruder access attempt every 2 minutes
+crontab -l
+crontab -e
+*/2 * * * * /home/devopslead/Road_to_DevOps/Linux/check_access.sh intruder # add at the end of the file
 ```
