@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    image: compose-hooks-demo:local
+    container_name: compose-hooks-app
+    # La app corre como usuario 1001
+    user: "1001:1001"
+    ports:
+      - "3000:3000"
+    volumes:
+      - data:/data
+    # HOOK que se ejecuta DESPUÉS de que el contenedor inicia
+    post_start:
+      - command: chown -R 1001:1001 /data
+        user: root
+    # HOOK que se ejecuta ANTES de detener el contenedor (cuando lo paras con compose)
+    pre_stop:
+      - command: /app/data_flush.sh
+        # puede correr como el user por defecto (1001) o como root si necesitas permisos
+
+volumes:
+  data: {}
