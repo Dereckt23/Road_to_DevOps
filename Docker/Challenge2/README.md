@@ -3,7 +3,7 @@
 ## Issue
 Teemii is a streamlined web application designed for the avid manga reader. It offers a straightforward and efficient platform for reading and managing a manga collection. 
 Key features include cross-platform access, in-browser reading, a powerful metadata aggregator, and automated updates of your collection.
-The idea is to Deploy Teemii using pre-built Docker images from Dockerhub, to be succesful in this challenge we should have to different containers with tha frontend and backend of the app communicating with each other and also having a persistent data management.
+The idea is to Deploy Teemii using pre-built Docker images from Dockerhub, to be succesful in this challenge we should have to different containers with the frontend and backend of the app communicating with each other and also having a persistent data management.
 We are going to solve this challenge with to different approachs and then compare both solutions at the end to analize which one is better. 
 
 
