@@ -65,4 +65,4 @@ Now that we have everything ready we can analyze with detail were do this approa
 | Complexity | Is easy to work with it with 1 or 2 containers. | Excellent to orquestrate multiple containers but needs a yaml ramp up. |
 | Reproducibility | Not great you will need to have a huge sheet of commands. | Really good, you just need to run the docker-compose file and reproduce it everywhere. |
 |Maintenance| Really complicated especially in real projects. | Allows you to do modifications pretty easily.|
-| CI/CD | Definitely not an option for. | Really good approach to add to a real world CI/CD pipeline automation. |
+| CI/CD | Definitely not an option for pipelines automations. | Really good approach to add to a real world CI/CD pipeline automation. |
