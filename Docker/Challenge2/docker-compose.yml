@@ -1,6 +1,6 @@
 services:
   backend:
-    image: dokkaner/teemii-backend:latest
+    image: dokkaner/teemii-backend
     container_name: teemii-backend
     networks:
       - teemii-network
@@ -8,7 +8,7 @@ services:
       - teemii-data:/data
 
   frontend:
-    image: dokkaner/teemii-frontend:latest
+    image: dokkaner/teemii-frontend
     container_name: teemii-frontend
     ports:
       - "8080:80"
