@@ -51,7 +51,9 @@ docker compose down
 ```
 
 If everything went right in both aproaches you should be able to `http://localhost:8080` in your browser and see our containers making its magic!
-IMAGE
+
+<img width="2535" height="1257" alt="image" src="https://github.com/user-attachments/assets/e42277e8-1540-467a-bf3d-b95d8590a37b" />
+
 
 ## Conclusions
 
