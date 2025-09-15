@@ -28,7 +28,7 @@ If you followed the steps above we should be able to open NGINX Amplify web port
 <img width="975" height="468" alt="image" src="https://github.com/user-attachments/assets/f55d1692-e5ed-4d83-9bf1-30f423d491a3" />
 
 Then we can start with our analysis, the first thing that we want to do is to create a dashboard you can refer to the oficial documention [here](https://docs.nginx.com/nginx-amplify/user-interface/dashboards/).
-Once we do that lets do something intersting, what we want to do is to simulate high trafic in our web server to see how it behaves. You can use this command ab -n 10000 -c 1000 http://localhost/ to simulate trafic.
+Once we do that lets do something intersting, what we want to do is to simulate high trafic in our web server to see how it behaves. You can use this command 'ab -n 10000 -c 1000 http://localhost/' to simulate trafic.
 
 <img width="975" height="593" alt="image" src="https://github.com/user-attachments/assets/e6aa6d16-6fa7-48c8-8aee-9b881a26e078" />
 
@@ -39,8 +39,8 @@ According to the image above we can observe that the graphics started to increas
 
 
 Now lets change the rules of the game a little bit!
-Inside the container open the following config file: /etc/nginx/nginx.conf.
-Then change the value of  this variable worker_connections 1024 to worker_connections 5000 in order to increase the number of connections that a process can handle simultaneously.
+Inside the container open the following config file: '/etc/nginx/nginx.conf'.
+Then change the value of  this variable 'worker_connections 1024' to 'worker_connections 5000' in order to increase the number of connections that a process can handle simultaneously.
 Lets check how the graphics behave now.
 
 <img width="975" height="374" alt="image" src="https://github.com/user-attachments/assets/9085f0f6-43f9-4a95-b367-5c45c885722d" />
