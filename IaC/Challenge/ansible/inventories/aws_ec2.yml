@@ -1,0 +1,17 @@
+plugin: aws_ec2
+regions:
+  - us-east-2
+filters:
+  tag:Tier:
+    - Web
+keyed_groups:
+  - key: tags.Tier
+    prefix: "tag_Tier"
+hostnames:
+  - tag:Name
+compose:
+  ansible_host: public_ip_address
+  ansible_user: ec2-user
+  ansible_ssh_private_key_file: ~/.ssh/terraform-key.pem
+
+

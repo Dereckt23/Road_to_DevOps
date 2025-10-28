@@ -1,0 +1,13 @@
+Host bastion
+    HostName 3.135.249.109
+    User ec2-user
+    IdentityFile ~/.ssh/terraform-key.pem
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+
+Host 10.*
+    User ec2-user
+    IdentityFile ~/.ssh/terraform-key.pem
+    ProxyJump bastion
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null

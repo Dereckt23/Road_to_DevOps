@@ -1,0 +1,10 @@
+---
+- name: Configure web servers
+  hosts: tag_Tier_Web
+  become: yes
+  remote_user: ec2-user
+  roles:
+    - web
+
+
+
