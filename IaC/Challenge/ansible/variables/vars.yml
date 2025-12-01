@@ -1,0 +1,3 @@
+---
+ansible_ssh_common_args: " -F /home/devopslead/Road_to_DevOps/IaC/Challenge/ansible/ssh_config"
+

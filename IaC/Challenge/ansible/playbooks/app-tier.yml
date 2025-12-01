@@ -1,0 +1,11 @@
+---
+- name: Configure application servers
+  hosts: tag_Tier_App
+  vars_files:
+    - ../variables/vars.yml
+  become: yes
+  remote_user: ec2-user
+
+  roles:
+    - app
+

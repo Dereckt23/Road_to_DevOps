@@ -1,0 +1,39 @@
+---
+
+- name: Ensure Apache is stopped and disabled
+  service:
+    name: httpd
+    state: stopped
+    enabled: no
+  ignore_errors: yes  # If apache is not installed
+
+- name: Ensure amazon-linux-extras is installed
+  yum:
+    name: amazon-linux-extras
+    state: present
+
+- name: Enable nginx repository
+  command: amazon-linux-extras enable nginx1
+  args:
+    creates: /etc/yum.repos.d/amzn2extra-nginx1.repo
+
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: present
+
+- name: Copy static web page
+  template:
+    src: index.html.j2
+    dest: /usr/share/nginx/html/index.html
+    owner: nginx
+    group: nginx
+    mode: '0644'
+
+- name: Ensure Nginx is started and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+
