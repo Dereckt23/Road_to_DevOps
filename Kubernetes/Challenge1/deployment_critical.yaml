@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: critical-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: critical-pod
+  template:
+    metadata:
+      labels:
+        app: critical-pod
+    spec:
+      nodeSelector:
+        AppType: "Critical"
+      tolerations: 
+      - key: "key1"
+        value: "critical-app"
+        operator: "Equal"
+        effect: "NoExecute"
+      containers:
+      - name: critical-container
+        image: nginx
