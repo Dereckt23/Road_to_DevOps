@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teemii-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend-app
+        image: dokkaner/teemii-backend
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+          - name: data
+            mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: teemii-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: teemii-backend
+spec:
+  selector:
+    app: backend
+  ports:
+  - name: rest
+    port: 3000
+    targetPort: 3000
+  - name: socket
+    port: 1555
+    targetPort: 1555
