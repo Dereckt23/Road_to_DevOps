@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend-app
+        image: {{ .Values.backend.image }}
+        ports:
+          - containerPort: {{ .Values.backend.port }}
+        volumeMounts:
+          - name: data
+            mountPath: {{ .Values.backend.pvc.mountPath }}
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Values.pvc.name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-backend
+spec:
+  selector:
+    app: backend
+  ports:
+  - name: rest
+    port: {{ .Values.backend.port }}
+    targetPort: {{ .Values.backend.port }}
+  - name: socket
+    port: {{ .Values.backend.socketPort }}
+    targetPort: {{ .Values.backend.socketPort }}
