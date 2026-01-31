@@ -1,5 +1,5 @@
 backend:
-  replicas: 1
+  replicas: 2
   image: dokkaner/teemii-backend
   port: 3000
   socketPort: 1555

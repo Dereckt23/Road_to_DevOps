@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: teemi
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./Kubernetes/Challenge4/teemii-chart
+      sourceRef:
+        kind: GitRepository
+        name: teemi-repo
+        namespace: flux-system
+  values:
+    replicaCount: 2
