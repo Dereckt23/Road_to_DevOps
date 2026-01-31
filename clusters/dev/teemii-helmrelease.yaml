@@ -12,5 +12,7 @@ spec:
         kind: GitRepository
         name: teemi-repo
         namespace: flux-system
-  values:
-    replicaCount: 2
+values:
+  backend:
+    replicas: 2
+
